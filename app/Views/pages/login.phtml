@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+        <div class="text-center mb-4">
+            <img src="<?= defined('URL_BASE') ? URL_BASE : '' ?>/assets/img/logo.png" alt="Logo" style="width: 80px;">
+            <h4 class="mt-3">Área do Associado</h4>
+        </div>
+
+        <!-- Exibe erros se houver -->
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert alert-danger text-center">
+                <?php 
+                    if($_GET['error'] == 'credenciais_invalidas') echo "E-mail ou senha incorretos.";
+                    elseif($_GET['error'] == 'conta_inativa') echo "Sua conta está inativa.";
+                    else echo "Erro ao tentar logar.";
+                ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="<?= defined('URL_BASE') ? URL_BASE : '' ?>/login/auth" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="seu@email.com">
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" required placeholder="********">
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="<?= defined('URL_BASE') ? URL_BASE : '' ?>/esqueci-senha" class="small">Esqueceu a senha?</a>
+            </div>
+        </form>
+    </div>
+</div>

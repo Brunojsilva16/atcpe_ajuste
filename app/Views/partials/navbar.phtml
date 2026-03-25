@@ -1,0 +1,99 @@
+<?php
+
+use App\Core\Auth;
+
+$baseUrl = defined('URL_BASE') ? URL_BASE : '';
+?>
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm rounded-lg">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="<?= $baseUrl ?>/home">
+            <img src="<?= $baseUrl ?>/assets/img/logo.png" alt="Logo ATC-PE" width="60px" height="32" class="d-inline-block align-text-top rounded-md me-2">
+        </a>
+
+        <!-- Botão Mobile -->
+        <button id="navbarToggler" class="navbar-toggler order-lg-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse order-lg-1" id="navbarNavDropdown">
+            <ul id="navbarNav" class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-md hover:bg-gray-200 px-3 py-2" href="<?= $baseUrl ?>/home">Home</a>
+                </li>
+
+                <!-- Dropdown A ATC-PE -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle rounded-md hover:bg-gray-200 px-3 py-2" href="#" role="button" data-bs-toggle="dropdown">
+                        A ATC-PE
+                    </a>
+                    <ul class="dropdown-menu rounded-md shadow-lg">
+                        <li><a class="dropdown-item" href="<?= $baseUrl ?>/quem-somos">Quem somos</a></li>
+                        <li><a class="dropdown-item" href="<?= $baseUrl ?>/gestao">Gestão</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-md hover:bg-gray-200 px-3 py-2" href="<?= $baseUrl ?>/pesquisa">Pesquisar Profissional</a>
+                </li>
+
+                <!-- LÓGICA DE LOGIN/LOGOUT -->
+                <?php
+                // Convertemos para inteiro para garantir que a comparação funcione independente do tipo vindo da sessão
+                $userLevel = (int)Auth::level();
+                ?>
+
+                <?php if (Auth::check()): ?>
+                    <!-- Usuário LOGADO -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary px-3 py-2" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> Olá, <?= htmlspecialchars($_SESSION['user_name'] ?? 'Associado') ?>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                            <li><a class="dropdown-item" href="<?= $baseUrl ?>/edit-profile"><i class="fas fa-edit"></i> Editar Perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="http://app.associatec.com.br/AreaAssociados/ATCPE" target="_blank"> Associatec (cursos e Eventos)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <?php if ($userLevel >= 2): ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= $baseUrl ?>/dashboard"><i class="fas fa-tachometer-alt"></i> Painel Admin</a>
+                                </li>
+                            <?php else: ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= $baseUrl ?>/dashboard"><i class="fas fa-tachometer-alt"></i> Painel de Controle</a>
+                                </li>
+                            <?php endif; ?>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="<?= $baseUrl ?>/logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                <?php else: ?>
+                    <!-- Usuário NÃO LOGADO -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3 py-2" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-lock"></i> Área do Associado
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                            <li><a class="dropdown-item" href="http://app.associatec.com.br/AreaAssociados/ATCPE" target="_blank">Associatec (cursos e Eventos)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item fw-bold" href="<?= $baseUrl ?>/login">Fazer Login / Cadastro</a></li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
+            </ul>
+        </div>
+    </div>
+</nav>
