@@ -1,0 +1,80 @@
+/* IMPORTANTE: Não aplicamos estilos ao body aqui para não quebrar o layout.php 
+   que já gerencia a estrutura principal (Navbar/Footer).
+*/
+
+/* Estilo da imagem de perfil (círculo com borda) */
+.photo-preview-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+form#form-perfil {
+  text-align: left;
+}
+
+#edite, #cadastro {
+  margin-top: 5rem!important; /* Aumenta o espaço inferior para evitar sobreposição do footer */
+  margin-left: 4px!important; /* Pequeno ajuste para evitar que o conteúdo fique colado na borda */
+  margin-right: 4px!important; /* Pequeno ajuste para evitar que o conteúdo fique colado na borda */
+}
+
+.photo-preview-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botão da câmera flutuante */
+.btn-camera-upload {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #fff;
+}
+
+.btn-camera-upload:hover {
+    transform: scale(1.1);
+    background-color: #e9ecef !important;
+}
+
+/* Ajustes no Cartão */
+.card-profile {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden; /* Para o header não vazar bordas */
+}
+
+.card-header-profile {
+    background-color: #527d76; /* Sua cor padrão */
+    color: white;
+    padding: 1.5rem;
+}
+
+/* Inputs personalizados para foco */
+.form-control:focus {
+    border-color: #527d76;
+    box-shadow: 0 0 0 0.2rem rgba(82, 125, 118, 0.25);
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .photo-preview-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+}

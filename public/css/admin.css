@@ -1,0 +1,144 @@
+/* Estrutura Geral */
+.admin-wrapper {
+  background-color: #fcfcfc;
+}
+
+.extra-small {
+  font-size: 0.7rem;
+}
+
+/* Sidebar de Navegação */
+.admin-nav .nav-link {
+  color: #495057;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: 500;
+  background-color: #f8a950;
+}
+
+.admin-nav .nav-link i {
+  width: 20px;
+}
+
+.admin-nav .nav-link:hover {
+  background-color: #f1f3f5;
+  color: #527d76;
+}
+
+.admin-nav .nav-link.active {
+  background-color: #527d76;
+  color: white;
+  box-shadow: 0 4px 12px rgba(82, 125, 118, 0.2);
+}
+
+/* Tabela Personalizada */
+.admin-table thead th {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #edf2f7;
+  color: #718096;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.5rem;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f8fbfa !important;
+}
+
+/* Badges de Status */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-badge i {
+  font-size: 0.5rem;
+}
+
+.status-active {
+  background-color: #e6fffa;
+  color: #2c7a7b;
+}
+
+.status-inactive {
+  background-color: #fff5f5;
+  color: #c53030;
+}
+
+/* Paginação Personalizada - Estilo Quadro/Grid */
+.pagination-custom {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 4px; /* Espaçamento entre os quadros */
+  flex-wrap: wrap;
+}
+
+.pagination-custom .page-item .page-link {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  min-width: 38px; /* Garante que os números fiquem em quadros uniformes */
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  color: #4a5568;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.pagination-custom .page-item.active .page-link {
+  background-color: #527d76;
+  color: #fff;
+  border-color: #527d76;
+  box-shadow: 0 2px 6px rgba(82, 125, 118, 0.3);
+}
+
+.pagination-custom .page-item.disabled .page-link {
+  color: #cbd5e0;
+  background-color: #f7fafc;
+  border-color: #edf2f7;
+  cursor: not-allowed;
+}
+
+.pagination-custom .page-item:not(.active):not(.disabled) .page-link:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e0;
+  color: #527d76;
+  transform: translateY(-1px);
+}
+
+/* Estilo para as reticências (...) na páginação */
+.pagination-custom .page-item.disabled span.page-link {
+  border: none;
+  background: transparent;
+}
+
+/* Botões de Ação na Tabela */
+.admin-table .btn-group .btn-white {
+  background-color: #fff;
+  padding: 6px 10px;
+}
+
+.admin-table .btn-group .btn-white:hover {
+  background-color: #f7fafc;
+}

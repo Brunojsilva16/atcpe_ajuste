@@ -1,0 +1,83 @@
+/* Correção baseada na imagem image_dd20c7.png
+   Objetivo: Melhorar alinhamento, espaçamento e visual moderno.
+*/
+
+.card-associado {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    border: 1px solid #eee;
+}
+
+.card-associado:hover {
+    transform: translateY(-5px);
+}
+
+.card-header-img {
+    width: 200px;
+    min-width: 200px;
+    height: auto;
+    background-color: #f4f4f4;
+}
+
+.card-header-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-body h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.card-info {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.card-info i {
+    width: 20px;
+    color: #007bff;
+    margin-right: 8px;
+}
+
+.specialties {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.specialty-tag {
+    background: #e9ecef;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #495057;
+}
+
+@media (max-width: 600px) {
+    .card-associado {
+        flex-direction: column;
+    }
+    .card-header-img {
+        width: 100%;
+        height: 250px;
+    }
+}
